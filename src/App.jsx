@@ -1,11 +1,12 @@
-import "./App.css";
+import { PersonalInfo } from "./components/PersonalInfo";
 
-function App() {
+export function App() {
   return (
     <>
-      <div>Hello World</div>
+      <h1>CV Builder</h1>
+      <div>
+        <PersonalInfo></PersonalInfo>
+      </div>
     </>
   );
 }
-
-export default App;

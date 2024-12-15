@@ -5,7 +5,13 @@ import { ResultPage } from "./components/ResultPage";
 import { useState } from "react";
 
 export function App() {
-  const [generalInfo, setGeneralInfo] = useState();
+  const [generalInfo, setGeneralInfo] = useState({
+    name: "",
+    address: "",
+    age: "",
+    email: "",
+    phone: "",
+  });
   const [educArray, setEducArray] = useState([]);
   const [workArray, setWorkArray] = useState([]);
 
@@ -37,8 +43,8 @@ export function App() {
             <fieldset>
               <legend>General Information</legend>
               <GeneralInformation
-                current={generalInfo}
-                update={updateGenInfo}
+                generalInfo={generalInfo}
+                updateGenInfo={updateGenInfo}
               ></GeneralInformation>
             </fieldset>
             <fieldset>

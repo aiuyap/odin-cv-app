@@ -1,13 +1,22 @@
 import { InputField } from "./InputField";
 
-export function GeneralInformation() {
+export function GeneralInformation({ current, update }) {
+  function getInfo(text, inputName) {
+    const newInfo = current;
+    update({ ...newInfo, [inputName]: text });
+  }
+
   return (
     <form>
-      <InputField inputName="Name"></InputField>
-      <InputField inputName="Address"></InputField>
-      <InputField inputName="Age" inputType="number"></InputField>
-      <InputField inputName="Email" inputType="email"></InputField>
-      <InputField inputName="Phone Number" inputType="number"></InputField>
+      <InputField inputName="Name" getInfo={getInfo}></InputField>
+      <InputField inputName="Address" getInfo={getInfo}></InputField>
+      <InputField inputName="Age" inputType="number" getInfo={getInfo}></InputField>
+      <InputField inputName="Email" inputType="email" getInfo={getInfo}></InputField>
+      <InputField
+        inputName="Phone Number"
+        inputType="number"
+        getInfo={getInfo}
+      ></InputField>
       <div>
         <button type="submit">Submit</button> <button>Edit</button>
       </div>

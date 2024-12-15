@@ -1,6 +1,11 @@
 import { useState } from "react";
 
-export function InputField({ labelText, inputName, inputType = "text", getInfo }) {
+export function InputField({
+  labelText,
+  inputName,
+  inputType = "text",
+  getInfo,
+}) {
   const [text, setText] = useState("");
 
   function handleText(e) {
@@ -17,6 +22,7 @@ export function InputField({ labelText, inputName, inputType = "text", getInfo }
         onChange={handleText}
         id={inputName}
         required
+        autoComplete="off"
       />
     </>
   );

@@ -34,13 +34,13 @@ export function PracticalExperience({ workArray, setWorkArray }) {
       <InputField
         inputName="startDate"
         labelText="Start Date"
-        inputType="date"
+        inputType="month"
         getInfo={getInfo}
       ></InputField>
       <InputField
         inputName="endDate"
         labelText="End Date"
-        inputType="date"
+        inputType="month"
         getInfo={getInfo}
       ></InputField>
       <div>

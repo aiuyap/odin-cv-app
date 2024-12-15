@@ -1,8 +1,10 @@
 import { Fragment } from "react";
+import "../styles/resultpage.css";
 
-export function ResultPage({ genInfo, education, work }) {
-  console.log(education);
-  console.log(work);
+export function ResultPage({ genInfo, education, work, setGenerateClicked }) {
+  function handleEdit() {
+    setGenerateClicked(false);
+  }
   return (
     <div className="page">
       <div className="general-info">
@@ -37,6 +39,11 @@ export function ResultPage({ genInfo, education, work }) {
             </Fragment>
           );
         })}
+      </div>
+      <div className="button-field">
+        <button type="button" onClick={handleEdit}>
+          Edit
+        </button>
       </div>
     </div>
   );

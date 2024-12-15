@@ -37,7 +37,7 @@ export function EducationalExperience({ educArray, setEducArray }) {
       <InputField
         inputName="dateOfStudy"
         labelText="Date of Study"
-        inputType="date"
+        inputType="month"
         getInfo={getInfo}
       ></InputField>
       <div>

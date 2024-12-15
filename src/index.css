@@ -1,7 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Pixelify+Sans:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+:root {
+  font-family: "Roboto", sans-serif;
+  --shadow: 0.1px 0.1px 0.2px hsl(0deg 0% 0% / 0.04),
+    1.8px 1.1px 2.9px -0.2px hsl(0deg 0% 0% / 0.08),
+    3.4px 2.2px 5.6px -0.3px hsl(0deg 0% 0% / 0.11),
+    5.7px 3.6px 9.3px -0.5px hsl(0deg 0% 0% / 0.14),
+    9.4px 6px 15.4px -0.6px hsl(0deg 0% 0%/ 0.17),
+    15.3px 9.7px 25px -0.8px hsl(0deg 0% 0% / 0.2);
+}
+
+h1 {
+  margin: 2rem;
+  text-shadow: var(--shadow);
+  font-weight: 900;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 .fields-container {
@@ -18,8 +40,86 @@ form {
   gap: 1rem;
 }
 
+form label {
+  transform: translateY(50%);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
 fieldset {
-  padding: 1rem;
+  padding: 1rem 3rem 3rem 3rem;
   max-width: 30rem;
   flex: 1 1 0;
+  box-shadow: var(--shadow);
+  border: none;
+  border-radius: 15px;
+  background-color: white;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="month"],
+input[type="email"] {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+legend {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #0a66c2;
+}
+
+button {
+  align-items: center;
+  background-color: #0a66c2;
+  border: 0;
+  border-radius: 100px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+    color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+}
+
+button:hover,
+button:focus {
+  background-color: #16437e;
+  color: #ffffff;
+}
+
+button:active {
+  background: #09223b;
+  color: rgb(255, 255, 255, 0.7);
+}
+
+.button-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+li button {
+  background-color: red;
+  margin-left: 2rem;
+  margin-bottom: 10px;
+}
+
+li button:hover {
+  background-color: hsl(0, 100%, 70%);
 }

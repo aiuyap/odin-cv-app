@@ -6,12 +6,16 @@ import { useState } from "react";
 
 export function App() {
   const [generalInfo, setGeneralInfo] = useState();
+  const [generateClicked, setGenerateClicked] = useState(false);
 
   function updateGenInfo(newInfo) {
     setGeneralInfo(newInfo);
   }
 
-  console.log(generalInfo);
+  function handleSubmit() {
+    setGenerateClicked(true);
+  }
+
   return (
     <>
       <h1>CV Builder</h1>
@@ -32,7 +36,10 @@ export function App() {
           <PracticalExperience></PracticalExperience>
         </fieldset>
       </div>
-      <ResultPage genInfo={generalInfo}></ResultPage>
+      <div>
+        <button onClick={handleSubmit}>Generate CV</button>
+      </div>
+      <ResultPage genInfo={generalInfo} submitted={generateClicked}></ResultPage>
     </>
   );
 }

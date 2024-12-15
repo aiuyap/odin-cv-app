@@ -8,7 +8,7 @@ export function PracticalExperience() {
       <InputField inputName="Start Date" inputType="date"></InputField>
       <InputField inputName="End Date" inputType="date"></InputField>
       <div>
-        <button type="submit">Submit</button> <button>Edit</button>
+        <button type="submit">Add</button>
       </div>
     </form>
   );

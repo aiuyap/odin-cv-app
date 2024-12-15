@@ -7,7 +7,7 @@ export function EducationalExperience() {
       <InputField inputName="Title of Study"></InputField>
       <InputField inputName="Date of Study" inputType="date"></InputField>
       <div>
-        <button type="submit">Submit</button> <button>Edit</button>
+        <button type="submit">Add</button>
       </div>
     </form>
   );

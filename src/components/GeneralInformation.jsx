@@ -17,9 +17,6 @@ export function GeneralInformation({ current, update }) {
         inputType="number"
         getInfo={getInfo}
       ></InputField>
-      <div>
-        <button type="submit">Submit</button> <button>Edit</button>
-      </div>
     </form>
   );
 }

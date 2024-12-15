@@ -1,5 +1,6 @@
 import { GeneralInformation } from "./components/GeneralInformation";
 import { EducationalExperience } from "./components/EducationalExperience";
+import { PracticalExperience } from "./components/PracticalExperience";
 
 export function App() {
   return (
@@ -13,6 +14,10 @@ export function App() {
         <fieldset>
           <legend>Educational Experience</legend>
           <EducationalExperience></EducationalExperience>
+        </fieldset>
+        <fieldset>
+          <legend>Practical Experience</legend>
+          <PracticalExperience></PracticalExperience>
         </fieldset>
       </div>
     </>

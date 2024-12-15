@@ -4,8 +4,6 @@ import { InputField } from "./InputField";
 export function EducationalExperience({ educArray, setEducArray }) {
   const [currentEducation, setEducation] = useState();
 
-  console.log(educArray);
-
   function getInfo(text, inputName) {
     setEducation({ ...currentEducation, [inputName]: text });
   }

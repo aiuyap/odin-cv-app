@@ -6,9 +6,10 @@ import { useState } from "react";
 
 export function App() {
   const [generalInfo, setGeneralInfo] = useState();
-  const [generateClicked, setGenerateClicked] = useState(false);
   const [educArray, setEducArray] = useState([]);
   const [workArray, setWorkArray] = useState([]);
+
+  const [generateClicked, setGenerateClicked] = useState(false);
 
   function updateGenInfo(newInfo) {
     setGeneralInfo(newInfo);
@@ -47,10 +48,13 @@ export function App() {
       <div>
         <button onClick={handleSubmit}>Generate CV</button>
       </div>
-      <ResultPage
-        genInfo={generalInfo}
-        submitted={generateClicked}
-      ></ResultPage>
+      {generateClicked && (
+        <ResultPage
+          genInfo={generalInfo}
+          education={educArray}
+          work={workArray}
+        ></ResultPage>
+      )}
     </>
   );
 }

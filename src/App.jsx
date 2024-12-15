@@ -1,4 +1,4 @@
-import { FormField } from "./components/FormField";
+import { GeneralInformation } from "./components/GeneralInformation";
 
 export function App() {
   return (
@@ -6,7 +6,7 @@ export function App() {
       <h1>CV Builder</h1>
       <fieldset>
         <legend>General Information</legend>
-        <FormField></FormField>
+        <GeneralInformation></GeneralInformation>
       </fieldset>
     </div>
   );

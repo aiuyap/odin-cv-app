@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function InputField({ inputName }) {
+export function InputField({ inputName, inputType = "text" }) {
   const [text, setText] = useState("");
 
   function handleText(e) {
@@ -8,8 +8,9 @@ export function InputField({ inputName }) {
   }
 
   return (
-    <label>
-      {inputName} <input type="text" value={text} onChange={handleText} />
-    </label>
+    <>
+      <label htmlFor={inputName}>{inputName}</label>
+      <input type={inputType} value={text} onChange={handleText} id={inputName} />
+    </>
   );
 }

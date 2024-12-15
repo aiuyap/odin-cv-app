@@ -2,18 +2,36 @@ import { InputField } from "./InputField";
 
 export function GeneralInformation({ current, update }) {
   function getInfo(text, inputName) {
-    const newInfo = current;
-    update({ ...newInfo, [inputName]: text });
+    update({ ...current, [inputName]: text });
   }
 
   return (
     <form>
-      <InputField inputName="Name" getInfo={getInfo}></InputField>
-      <InputField inputName="Address" getInfo={getInfo}></InputField>
-      <InputField inputName="Age" inputType="number" getInfo={getInfo}></InputField>
-      <InputField inputName="Email" inputType="email" getInfo={getInfo}></InputField>
       <InputField
-        inputName="Phone Number"
+        inputName="name"
+        labelText="Name"
+        getInfo={getInfo}
+      ></InputField>
+      <InputField
+        inputName="address"
+        labelText="Address"
+        getInfo={getInfo}
+      ></InputField>
+      <InputField
+        inputName="age"
+        labelText="Age"
+        inputType="number"
+        getInfo={getInfo}
+      ></InputField>
+      <InputField
+        inputName="email"
+        labelText="Email"
+        inputType="email"
+        getInfo={getInfo}
+      ></InputField>
+      <InputField
+        inputName="phone"
+        labelText="Phone Number"
         inputType="number"
         getInfo={getInfo}
       ></InputField>

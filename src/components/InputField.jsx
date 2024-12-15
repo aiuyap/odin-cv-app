@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function InputField({ inputName, inputType = "text", getInfo }) {
+export function InputField({ labelText, inputName, inputType = "text", getInfo }) {
   const [text, setText] = useState("");
 
   function handleText(e) {
@@ -10,7 +10,7 @@ export function InputField({ inputName, inputType = "text", getInfo }) {
 
   return (
     <>
-      <label htmlFor={inputName}>{inputName}</label>
+      <label htmlFor={inputName}>{labelText}</label>
       <input
         type={inputType}
         value={text}

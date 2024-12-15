@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { InputField } from "./InputField";
 
 export function EducationalExperience({ educArray, setEducArray }) {
-  const [currentEducation, setEducation] = useState();
-
-  function getInfo(text, inputName) {
-    setEducation({ ...currentEducation, [inputName]: text });
-  }
+  const [currentEducation, setEducation] = useState({
+    school: "",
+    title: "",
+    date: "",
+  });
 
   function addEducation(e) {
     e.preventDefault();
@@ -22,24 +21,39 @@ export function EducationalExperience({ educArray, setEducArray }) {
     });
   }
 
+  function handleText(e, id) {
+    setEducation({ ...currentEducation, [id]: e.target.value });
+  }
+
   return (
     <form onSubmit={addEducation}>
-      <InputField
-        inputName="school"
-        labelText="School"
-        getInfo={getInfo}
-      ></InputField>
-      <InputField
-        inputName="titleOfStudy"
-        labelText="Title of Study"
-        getInfo={getInfo}
-      ></InputField>
-      <InputField
-        inputName="dateOfStudy"
-        labelText="Date of Study"
-        inputType="month"
-        getInfo={getInfo}
-      ></InputField>
+      <label htmlFor="school">School</label>
+      <input
+        value={currentEducation.school}
+        onChange={(e) => handleText(e, "school")}
+        type="text"
+        id="school"
+        required
+        autoComplete="off"
+      />
+      <label htmlFor="title">Title Of Study</label>
+      <input
+        value={currentEducation.title}
+        onChange={(e) => handleText(e, "title")}
+        type="text"
+        id="title"
+        required
+        autoComplete="off"
+      />
+      <label htmlFor="date">Date Of Study</label>
+      <input
+        value={currentEducation.date}
+        onChange={(e) => handleText(e, "date")}
+        type="month"
+        id="title"
+        required
+        autoComplete="off"
+      />
       <div>
         <button type="submit">Add</button>
       </div>

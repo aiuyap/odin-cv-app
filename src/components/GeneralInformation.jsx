@@ -1,5 +1,4 @@
 export function GeneralInformation({ generalInfo, updateGenInfo }) {
-  console.log(generalInfo);
   function handleText(e, id) {
     updateGenInfo({ ...generalInfo, [id]: e.target.value });
   }

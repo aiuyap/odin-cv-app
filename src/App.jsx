@@ -1,13 +1,20 @@
 import { GeneralInformation } from "./components/GeneralInformation";
+import { EducationalExperience } from "./components/EducationalExperience";
 
 export function App() {
   return (
-    <div className="container">
+    <>
       <h1>CV Builder</h1>
-      <fieldset>
-        <legend>General Information</legend>
-        <GeneralInformation></GeneralInformation>
-      </fieldset>
-    </div>
+      <div className="container">
+        <fieldset>
+          <legend>General Information</legend>
+          <GeneralInformation></GeneralInformation>
+        </fieldset>
+        <fieldset>
+          <legend>Educational Experience</legend>
+          <EducationalExperience></EducationalExperience>
+        </fieldset>
+      </div>
+    </>
   );
 }

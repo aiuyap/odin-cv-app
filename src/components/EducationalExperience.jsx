@@ -7,6 +7,10 @@ export function EducationalExperience({ educArray, setEducArray }) {
     date: "",
   });
 
+  if (educArray.length > 0 && currentEducation.school === "") {
+    setEducation(educArray[educArray.length - 1]);
+  }
+
   function addEducation(e) {
     e.preventDefault();
     setEducArray([

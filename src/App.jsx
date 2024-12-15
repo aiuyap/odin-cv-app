@@ -8,6 +8,7 @@ export function App() {
   const [generalInfo, setGeneralInfo] = useState();
   const [generateClicked, setGenerateClicked] = useState(false);
   const [educArray, setEducArray] = useState([]);
+  const [workArray, setWorkArray] = useState([]);
 
   function updateGenInfo(newInfo) {
     setGeneralInfo(newInfo);
@@ -37,7 +38,10 @@ export function App() {
         </fieldset>
         <fieldset>
           <legend>Practical Experience</legend>
-          <PracticalExperience></PracticalExperience>
+          <PracticalExperience
+            workArray={workArray}
+            setWorkArray={setWorkArray}
+          ></PracticalExperience>
         </fieldset>
       </div>
       <div>

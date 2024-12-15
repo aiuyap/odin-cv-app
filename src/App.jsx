@@ -1,12 +1,13 @@
 import { GeneralInformation } from "./components/GeneralInformation";
 import { EducationalExperience } from "./components/EducationalExperience";
 import { PracticalExperience } from "./components/PracticalExperience";
+import { ResultPage } from "./components/ResultPage";
 
 export function App() {
   return (
     <>
       <h1>CV Builder</h1>
-      <div className="container">
+      <div className="fields-container">
         <fieldset>
           <legend>General Information</legend>
           <GeneralInformation></GeneralInformation>
@@ -20,6 +21,7 @@ export function App() {
           <PracticalExperience></PracticalExperience>
         </fieldset>
       </div>
+      <ResultPage></ResultPage>
     </>
   );
 }

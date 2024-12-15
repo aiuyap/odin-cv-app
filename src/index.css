@@ -4,10 +4,12 @@
   box-sizing: border-box;
 }
 
-.container {
+.fields-container {
   margin: 2rem;
   display: flex;
   gap: 5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 form {
@@ -19,4 +21,5 @@ form {
 fieldset {
   padding: 1rem;
   max-width: 30rem;
+  flex: 1 1 0;
 }

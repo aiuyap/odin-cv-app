@@ -25,6 +25,16 @@ export function EducationalExperience({ educArray, setEducArray }) {
     });
   }
 
+  function editEducation(id) {
+    let edit;
+    educArray.forEach((educ) => {
+      if (educ.key === id)
+        edit = { school: educ.school, title: educ.title, date: educ.date };
+    });
+    setEducation(edit);
+    removeEducation(id);
+  }
+
   function handleText(e, id) {
     setEducation({ ...currentEducation, [id]: e.target.value });
   }
@@ -65,6 +75,9 @@ export function EducationalExperience({ educArray, setEducArray }) {
         {educArray.map((educ) => (
           <li key={educ.key}>
             {educ.school}{" "}
+            <button type="button" onClick={() => editEducation(educ.key)}>
+              Edit
+            </button>
             <button type="button" onClick={() => removeEducation(educ.key)}>
               X
             </button>
@@ -74,3 +87,4 @@ export function EducationalExperience({ educArray, setEducArray }) {
     </form>
   );
 }
+//TODO: Add edit button for each education added

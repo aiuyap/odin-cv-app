@@ -20,8 +20,8 @@ export function ResultPage({ genInfo, education, work, setGenerateClicked }) {
           return (
             <Fragment key={educ.key}>
               <h3>{educ.school}</h3>
-              <p>{educ.titleOfStudy}</p>
-              <p>{educ.dateOfStudy}</p>
+              <p>{educ.title}</p>
+              <p>{educ.date}</p>
             </Fragment>
           );
         })}

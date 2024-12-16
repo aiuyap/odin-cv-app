@@ -14,7 +14,6 @@ export function App() {
   });
   const [educArray, setEducArray] = useState([]);
   const [workArray, setWorkArray] = useState([]);
-
   const [generateClicked, setGenerateClicked] = useState(false);
 
   function updateGenInfo(newInfo) {

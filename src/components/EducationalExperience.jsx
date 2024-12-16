@@ -1,23 +1,14 @@
 import { useState } from "react";
 
 export function EducationalExperience({ educArray, setEducArray }) {
-  const [currentEducation, setEducation] = useState({
+  const emptyEduc = {
     school: "",
     title: "",
     date: "",
-  });
-
+  };
+  const [currentEducation, setEducation] = useState(emptyEduc);
   const [editMode, setEditMode] = useState(false);
   const [keyForEdit, setKeyForEdit] = useState();
-
-  if (
-    educArray.length > 0 &&
-    currentEducation.school === "" &&
-    currentEducation.title === "" &&
-    currentEducation.date === ""
-  ) {
-    setEducation(educArray[educArray.length - 1]);
-  }
 
   function addEducation(e) {
     e.preventDefault();
@@ -25,6 +16,7 @@ export function EducationalExperience({ educArray, setEducArray }) {
       ...educArray,
       { ...currentEducation, key: crypto.randomUUID() },
     ]);
+    setEducation(emptyEduc);
 
     if (editMode) {
       removeEducation(keyForEdit);
@@ -54,11 +46,7 @@ export function EducationalExperience({ educArray, setEducArray }) {
   }
 
   return (
-    <form
-      onSubmit={(e) => {
-        addEducation(e);
-      }}
-    >
+    <form onSubmit={addEducation}>
       <label htmlFor="school">School</label>
       <input
         value={currentEducation.school}

@@ -96,15 +96,9 @@ button {
     color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
 }
 
-button:hover,
-button:focus {
+button:hover {
   background-color: #16437e;
   color: #ffffff;
-}
-
-button:active {
-  background: #09223b;
-  color: rgb(255, 255, 255, 0.7);
 }
 
 .button-field {
@@ -114,10 +108,21 @@ button:active {
   padding-bottom: 2rem;
 }
 
+li {
+  display: grid;
+  grid-template-columns: 1fr 50px 50px;
+  margin-bottom: 0.5rem;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
 li button {
   background-color: red;
-  margin-left: 2rem;
-  margin-bottom: 10px;
+}
+
+li button:focus {
+  background-color: #0a66c2;
+  color: rgb(255, 255, 255, 0.7);
 }
 
 li button:hover {

@@ -1,16 +1,25 @@
 import { useState } from "react";
-import { InputField } from "./InputField";
 
 export function PracticalExperience({ workArray, setWorkArray }) {
-  const [currentWork, setWork] = useState();
+  const emptyWork = {
+    companyName: "",
+    positionTitle: "",
+    startDate: "",
+    endDate: "",
+  };
 
-  function getInfo(text, inputName) {
-    setWork({ ...currentWork, [inputName]: text });
-  }
+  const [currentWork, setWork] = useState(emptyWork);
+  const [editMode, setEditMode] = useState(false);
+  const [keyForEdit, setKeyForEdit] = useState();
 
   function addWork(e) {
     e.preventDefault();
     setWorkArray([...workArray, { ...currentWork, key: crypto.randomUUID() }]);
+    setWork(emptyWork);
+    if (editMode) {
+      removeWork(keyForEdit);
+      setEditMode(false);
+    }
   }
 
   function removeWork(id) {
@@ -19,37 +28,74 @@ export function PracticalExperience({ workArray, setWorkArray }) {
     });
   }
 
+  function handleText(e, id) {
+    setWork({ ...currentWork, [id]: e.target.value });
+  }
+
+  function editWork(id) {
+    let edit;
+    workArray.forEach((work) => {
+      if (work.key === id)
+        edit = {
+          companyName: work.companyName,
+          positionTitle: work.positionTitle,
+          startDate: work.startDate,
+          endDate: work.endDate,
+        };
+    });
+    setWork(edit);
+    setEditMode(true);
+    setKeyForEdit(id);
+  }
+
   return (
     <form onSubmit={addWork}>
-      <InputField
-        inputName="companyName"
-        labelText="Company Name"
-        getInfo={getInfo}
-      ></InputField>
-      <InputField
-        inputName="title"
-        labelText="Position Title"
-        getInfo={getInfo}
-      ></InputField>
-      <InputField
-        inputName="startDate"
-        labelText="Start Date"
-        inputType="month"
-        getInfo={getInfo}
-      ></InputField>
-      <InputField
-        inputName="endDate"
-        labelText="End Date"
-        inputType="month"
-        getInfo={getInfo}
-      ></InputField>
+      <label htmlFor="companyName">Company Name</label>
+      <input
+        value={currentWork.companyName}
+        type="text"
+        id="companyName"
+        required
+        autoComplete="off"
+        onChange={(e) => handleText(e, "companyName")}
+      />
+      <label htmlFor="positionTitle">Position Title</label>
+      <input
+        value={currentWork.positionTitle}
+        type="text"
+        id="positionTitle"
+        required
+        autoComplete="off"
+        onChange={(e) => handleText(e, "positionTitle")}
+      />
+      <label htmlFor="startDate">Start Date</label>
+      <input
+        value={currentWork.startDate}
+        type="month"
+        id="startDate"
+        required
+        autoComplete="off"
+        onChange={(e) => handleText(e, "startDate")}
+      />
+      <label htmlFor="endDate">End Date</label>
+      <input
+        value={currentWork.endDate}
+        type="month"
+        id="endDate"
+        required
+        autoComplete="off"
+        onChange={(e) => handleText(e, "endDate")}
+      />
       <div>
-        <button type="submit">Add</button>
+        <button type="submit">{editMode ? "Save" : "Add"}</button>
       </div>
       <ul>
         {workArray.map((work) => (
           <li key={work.key}>
             {work.companyName}{" "}
+            <button type="button" onClick={() => editWork(work.key)}>
+              Edit
+            </button>
             <button type="button" onClick={() => removeWork(work.key)}>
               X
             </button>

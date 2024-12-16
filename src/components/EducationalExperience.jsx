@@ -70,7 +70,7 @@ export function EducationalExperience({ educArray, setEducArray }) {
         value={currentEducation.date}
         onChange={(e) => handleText(e, "date")}
         type="month"
-        id="title"
+        id="date"
         required
         autoComplete="off"
       />

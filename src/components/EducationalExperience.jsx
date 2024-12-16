@@ -7,7 +7,15 @@ export function EducationalExperience({ educArray, setEducArray }) {
     date: "",
   });
 
-  if (educArray.length > 0 && currentEducation.school === "") {
+  const [editMode, setEditMode] = useState(false);
+  const [keyForEdit, setKeyForEdit] = useState();
+
+  if (
+    educArray.length > 0 &&
+    currentEducation.school === "" &&
+    currentEducation.title === "" &&
+    currentEducation.date === ""
+  ) {
     setEducation(educArray[educArray.length - 1]);
   }
 
@@ -17,6 +25,11 @@ export function EducationalExperience({ educArray, setEducArray }) {
       ...educArray,
       { ...currentEducation, key: crypto.randomUUID() },
     ]);
+
+    if (editMode) {
+      removeEducation(keyForEdit);
+      setEditMode(false);
+    }
   }
 
   function removeEducation(id) {
@@ -32,7 +45,8 @@ export function EducationalExperience({ educArray, setEducArray }) {
         edit = { school: educ.school, title: educ.title, date: educ.date };
     });
     setEducation(edit);
-    removeEducation(id);
+    setEditMode(true);
+    setKeyForEdit(id);
   }
 
   function handleText(e, id) {
@@ -40,7 +54,11 @@ export function EducationalExperience({ educArray, setEducArray }) {
   }
 
   return (
-    <form onSubmit={addEducation}>
+    <form
+      onSubmit={(e) => {
+        addEducation(e);
+      }}
+    >
       <label htmlFor="school">School</label>
       <input
         value={currentEducation.school}
@@ -69,7 +87,7 @@ export function EducationalExperience({ educArray, setEducArray }) {
         autoComplete="off"
       />
       <div>
-        <button type="submit">Add</button>
+        <button type="submit">{editMode ? "Save" : "Add"}</button>
       </div>
       <ul>
         {educArray.map((educ) => (
@@ -87,4 +105,3 @@ export function EducationalExperience({ educArray, setEducArray }) {
     </form>
   );
 }
-//TODO: Add edit button for each education added
